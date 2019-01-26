@@ -1,0 +1,29 @@
+@startuml schema
+
+entity users {
+  + id [PK]
+  ---
+  name
+}
+
+entity posts {
+  + id [PK]
+  ---
+  user_id
+  subject
+  body
+}
+
+entity comments {
+  + id [PK]
+  ---
+  post_id
+  user_id
+  body
+}
+
+users -o{ posts
+users -o{ comments
+posts -o{ comments
+
+@enduml
