@@ -22,5 +22,19 @@ module Types
     def users
       User.all
     end
+
+    field :comment, Types::CommentType, null: false do
+      description 'コメント情報を1件取得する'
+      argument :id, Int, required: true, description: 'コメントID'
+    end
+    def comment(id:)
+      Comment.find(id)
+    end
+
+    field :comments, [Types::CommentType], null: false, description: 'コメント情報を全件取得する'
+    def comments
+      Comment.all
+    end
+
   end
 end
