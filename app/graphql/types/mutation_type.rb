@@ -16,5 +16,9 @@ module Types
     field :update_comment, mutation: Mutations::UpdateComment
   end
 
+  class MutationType < Types::BaseObject
+    field :destroy_comment, mutation: Mutations::DestroyComment
+  end
+
 end
 
